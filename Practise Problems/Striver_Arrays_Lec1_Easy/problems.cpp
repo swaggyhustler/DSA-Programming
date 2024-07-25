@@ -4,9 +4,29 @@ void noAppearsOnes();
 void maxCountOfOnes();
 void longestConsecutiveSumEqualToKApproach1( int );
 void longestConsecutiveSumEqualToKApproach2( int );
+void longestConsecutiveSumEqualToKApproach3( int );
 int main(){
-    longestConsecutiveSumEqualToKApproach2(6);
+    longestConsecutiveSumEqualToKApproach3(6);
     return 0;
+}
+void longestConsecutiveSumEqualToKApproach3(int k){
+    vector<int> arr={1,2,3,1,1,1,1,3,3};
+    int k=4;
+    int i=0, j=0, sum=arr[0], max_len=0;
+    while(i<arr.size() && j<arr.size()){
+        while(i<=j && sum>k){
+            sum-=arr[i];
+            i++;
+        }
+        if(sum==k){
+            max_len=max(max_len, j-i+1);
+        }
+        j++;
+        if(j<arr.size()){
+            sum+=arr[j];
+        }
+    }
+    cout<<max_len<<endl;
 }
 void longestConsecutiveSumEqualToKApproach2(int k){
     vector<int> arr={1,2,3,1,1,1,1,4,2,3};
@@ -21,7 +41,9 @@ void longestConsecutiveSumEqualToKApproach2(int k){
         if(preSumMap.find(rem)!=preSumMap.end()){
             max_len=max(max_len, i-preSumMap[rem]);
         }
-        preSumMap[sum]=i;
+        if(preSumMap.find(sum)==preSumMap.end()){
+            preSumMap[sum]=i;
+        }
     }
     cout<<max_len<<endl;
 }
