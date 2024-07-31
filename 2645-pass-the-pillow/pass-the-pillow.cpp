@@ -4,8 +4,7 @@ public:
         if(time<n){
             return time+1;
         }else{
-            bool di=((time/(n-1))%2)==0;
-            if(di){
+            if(((time/(n-1))%2)==0){
                 return (time%(n-1))+1;
             }else{
                 return n-(time%(n-1));
