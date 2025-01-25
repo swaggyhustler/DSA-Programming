@@ -3,6 +3,14 @@ class Hashing{
     public static void main(String args[]){
         charCounter();
     }
+    public void max_min_freq(){
+        int[] arr={1,2,1,6,2,7};
+        int max=Integer.MIN_VALUE;
+        int min=Integer.MAX_VALUE;
+        Hashtable<Integer, Integer> freq = new Hashtable<>();
+        
+
+    }
     public static void charCounter(){
         Scanner sc=new Scanner(System.in);
         String str=sc.nextLine();
